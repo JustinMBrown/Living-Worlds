@@ -27,13 +27,13 @@ Next turn off screen sleeping
 4) Open the terminal and run:
   "sudo leafpad etc/lightdm/lightdm.conf"
 
-5) Under the "[SetDefaults] section, find "#xserver-command=X"
+5) Under the "[SetDefaults]" section, find "#xserver-command=X"
 
 6) Remove the "#"
 
 7) Change the setting to "xserver-command=X -s 0 -dpms"
 
-8) Save and reboot"
+8) Save and reboot
 
 9) Transfer the code to the Raspberry Pi
 
