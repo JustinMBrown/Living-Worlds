@@ -1,6 +1,4 @@
-# Living-Worlds
-
-These amazing images were created by Mark Ferrari(http://markferrari.com/) and the code was created by Joesheph Huckaby. All I did was scrape the code and images from The Wayback Machine.
+These amazing images were created by Mark Ferrari(http://markferrari.com/) and the code was created by Joe Huckaby. All I did was scrape the code and images from The Wayback Machine.
 
 You can learn more about the long history of this work of art here:
 
@@ -24,8 +22,7 @@ How to use with Raspberry pi 3:
 
 Next turn off screen sleeping
 
-4) Open the terminal and run:
-  "sudo leafpad etc/lightdm/lightdm.conf"
+4) Open the terminal and run: "sudo leafpad etc/lightdm/lightdm.conf"
 
 5) Under the "[SetDefaults]" section, find "#xserver-command=X"
 
@@ -39,6 +36,6 @@ Next turn off screen sleeping
 
 10) Right click on index.html and run with Firefox
 
-11) Turn Firefox into fullscreen mode and adjust the zoom so that the art fills the top and bottom of the screen.
+11) Turn Firefox into full screen mode and adjust the zoom so that the art fills the top and bottom of the screen.
 
 12) Enjoy
