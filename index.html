@@ -1,0 +1,176 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Living Worlds in HTML5</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Joseph Huckaby">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<!-- Date: 2010-07-17 -->
+	<link rel="stylesheet" type="text/css" href="style.css" >
+	
+	<script type="text/javascript" src="images/V26janclr.js"></script>
+	<script type="text/javascript" src="images/V26SNOWjansnow.js"></script>
+	<script type="text/javascript" src="images/V19febclr.js"></script>
+	<script type="text/javascript" src="images/V19febcldy.js"></script>
+	<script type="text/javascript" src="images/V30aprclr.js"></script>
+	<script type="text/javascript" src="images/V30RAINaprrain.js"></script>
+	<script type="text/javascript" src="images/V08mayclr.js"></script>
+	<script type="text/javascript" src="images/V08maycldy.js"></script>
+	<script type="text/javascript" src="images/V08RAINmayrain.js"></script>
+	<script type="text/javascript" src="images/V20JOEjunday.js"></script>
+	<script type="text/javascript" src="images/V25julyclr.js"></script>
+	<script type="text/javascript" src="images/V25julycldy.js"></script>
+	<script type="text/javascript" src="images/CORAL.js"></script>
+	<script type="text/javascript" src="images/V29septclr.js"></script>
+	<script type="text/javascript" src="images/V29septcldy.js"></script>
+	<script type="text/javascript" src="images/V05AMoctbegclr.js"></script>
+	<script type="text/javascript" src="images/V05octendclr.js"></script>
+	<script type="text/javascript" src="images/V05RAINoctrain.js"></script>
+	<script type="text/javascript" src="images/V16novclr.js"></script>
+	<script type="text/javascript" src="images/V16RAINnovrain.js"></script>
+	<script type="text/javascript" src="images/V12BASICdecclr.js"></script>
+	<script type="text/javascript" src="oop.js"></script>
+	<script type="text/javascript" src="tools.js"></script>
+	<script type="text/javascript" src="cookie.js"></script>
+	<script type="text/javascript" src="palette.js"></script>
+	<script type="text/javascript" src="bitmap.js"></script>
+	<script type="text/javascript" src="scenes.js"></script>
+	<script type="text/javascript" src="tween.js"></script>
+	<script type="text/javascript" src="framecount.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	
+</head>
+<body>
+	<div id="container">
+		<div id="d_header">
+			<div id="d_scene_selector"></div>
+			<div id="d_scene_btns">
+			
+			</div>
+			<div id="d_options_control">
+				<div id="btn_options_toggle" class="button left right" onClick="CC.toggleOptions()">Show Options &#x00BB;</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div id="d_loading"></div>
+		
+		<div id="d_timeline">
+			<div class="label" style="text-align:center">TIME&nbsp;OF&nbsp;DAY:</div>
+			<div id="d_tl_clock"></div>
+			<div id="d_tl_container">
+				<div id="d_tl_back"></div>
+				<div id="d_tl_thumb"></div>
+				<div class="tl_label">12&nbsp;AM</div>
+				<div class="tl_label">3&nbsp;AM</div>
+				<div class="tl_label">6&nbsp;AM</div>
+				<div class="tl_label">9&nbsp;AM</div>
+				<div class="tl_label">12&nbsp;PM</div>
+				<div class="tl_label">3&nbsp;PM</div>
+				<div class="tl_label">6&nbsp;PM</div>
+				<div class="tl_label">9&nbsp;PM</div>
+				<div class="tl_label">12&nbsp;AM</div>
+			</div>
+		</div>
+		
+		<canvas id="mycanvas" width="640" height="480" onclick="CC.jumpScene(1)" style=""></canvas>
+		
+		<div id="d_options">
+
+			
+			<div class="label">ZOOM:</div>
+			<div class="section">
+				<div id="btn_zoom_actual" class="button left selected" onClick="CC.setZoom(false)">Native</div><div id="btn_zoom_max" class="button right" onClick="CC.setZoom(true)">Max</div>
+			</div>
+			
+			<div class="label">CYCLE SPEED:</div>
+			<div class="section">
+				<div id="btn_speed_025" class="button thin left" onClick="CC.setSpeed(0.25)">&frac14;</div><div id="btn_speed_05" class="button thin" onClick="CC.setSpeed(0.5)">&frac12;</div><div id="btn_speed_1" class="button thin selected" onClick="CC.setSpeed(1)">1</div><div id="btn_speed_2" class="button thin" onClick="CC.setSpeed(2)">2</div><div id="btn_speed_4" class="button thin right" onClick="CC.setSpeed(4)">4</div>
+			</div>
+			
+			<div class="label">CYCLE MODE:</div>
+			<div class="section">
+				<div id="btn_blendshift_off" class="button left" onClick="CC.setBlendShift(false)">Classic</div><div id="btn_blendshift_on" class="button right selected" onClick="CC.setBlendShift(true)">Blend</div>
+			</div>
+			
+			<div id="palette_display"></div>
+			
+			<div id="d_debug"></div>
+		</div>
+		
+		<div class="clear"></div>
+
+	</div>
+
+	
+	<!--[if lte IE 8]>
+		<style type="text/css">
+			body { width: 100%; overflow: auto; }
+			#d_footer { display: none; }
+			h1 { color: #aaa; }
+		</style>
+		
+	    <script type="text/javascript" 
+	     src="/web/20160326052057/http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+		
+		<div id="bad_ie" style="margin:50px; padding:50px; border:1px solid #888;"><center>
+			<h1>So sorry!</h1>
+			<h2>The color cycling canvas engine isn't compatible with Microsoft Internet Explorer versions 6, 7 or 8...</h2>
+			<h3>Unless of course you have the Chrome Frame extension, in which case it works perfectly.</h3>
+			<h3>Chrome Frame is a free extension made by Google, which brings open web technologies to Internet Explorer, and installs seamlessly without restarting the browser.</h3>
+			<br/><br/>
+			<form>
+				<input type="button" value="Install Google Chrome Frame..." onClick="$('bad_ie').hide();CFInstall.check({mode:'inline'});"/>
+			</form>
+		</center></div>
+	  <![endif]-->
+		
+	<script language="JavaScript">
+		if (document.addEventListener) {
+			// Good browsers
+			document.addEventListener( "DOMContentLoaded", function() {
+				document.removeEventListener( "DOMContentLoaded", arguments.callee, false );
+				CC.init();
+			}, false );
+
+			// Just in case
+			window.addEventListener( "load", function() {
+				window.removeEventListener( "load", arguments.callee, false );
+				CC.init();
+			}, false );
+			
+			window.addEventListener( "resize", function() {
+				CC.handleResize();
+			}, false );
+		}
+		else if (window.attachEvent) {
+			// Bad browsers have to wait
+			/* window.attachEvent("onload", function() {
+				setTimeout( function() { CC.init(); }, 1000 );
+			});
+			
+			window.attachEvent("onresize", function() {
+				CC.handleResize();
+			}); */
+			
+			// chrome frame
+			// CFInstall.check({ mode: "overlay" });
+		}
+	</script>
+	
+</body>
+</html>
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 5:20:57 Mar 26, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 16:19:49 Aug 21, 2016.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
